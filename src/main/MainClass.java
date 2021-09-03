@@ -1,8 +1,9 @@
 package main;
 
 import java.util.Scanner;
-
 import jieun.Mem_jieun;
+import Kimhs.KHS_method;
+
 
 public class MainClass {
 	public static void main(String[] args) {
@@ -23,13 +24,15 @@ public class MainClass {
 			case 1: break;
 			case 2: break;
 			case 3: break;
-			case 4: break;
+			case 4:
+				KHS_method hs = new KHS_method();
+				hs.display();
+				break;
 			case 5:
 				Mem_jieun mem = new Mem_jieun();
 				mem.display();
 				break;
 			case 6: break;
-			
 			case 7: System.exit(0); break;
 			default:
 				System.out.println("only 1~7.");
