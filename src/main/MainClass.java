@@ -23,7 +23,7 @@ public class MainClass {
 			case 1: break;
 			case 2: 
 				Main_KYJ kyj = new Main_KYJ();
-				kyj.main(args);
+				kyj.display();
 				break;
 			case 3: break;
 			case 4: break;
