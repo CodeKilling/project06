@@ -1,6 +1,7 @@
-package main;
+package src.main;
 
 import java.util.ArrayList;
+import main.MemberDTO;
 
 public interface Interface_Member {
 	public ArrayList<MemberDTO> getList();
