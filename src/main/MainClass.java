@@ -1,6 +1,7 @@
 package main;
 
 import java.util.Scanner;
+import psy.*;
 
 public class MainClass {
 	public static void main(String[] args) {
@@ -23,9 +24,12 @@ public class MainClass {
 			case 3: break;
 			case 4: break;
 			case 5: break;
-			case 6: break;
+			case 6:
+				Member_psy psy = new Member_psy();
+				psy.display();
+				break;
 			
-			case 7: System.exit(0); break;
+			case 7: sc.close(); System.exit(0); break;
 			default:
 				System.out.println("only 1~7.");
 				break;
