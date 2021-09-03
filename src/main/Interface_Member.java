@@ -1,8 +1,10 @@
 package main;
 
+import java.util.ArrayList;
+
 public interface Interface_Member {
-	public void getList();
-	public void getAdd();
-	public void getDelete();
-	public void getModify();
+	public ArrayList<MemberDTO> getList();
+	public int getAdd(String userId, String userName, int userAge);
+	public int getDelete(String userId);
+	public int getModify(String userId, String userName, int userAge);
 }

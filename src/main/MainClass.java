@@ -2,6 +2,8 @@ package main;
 
 import java.util.Scanner;
 
+import jieun.Mem_jieun;
+
 public class MainClass {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -22,7 +24,10 @@ public class MainClass {
 			case 2: break;
 			case 3: break;
 			case 4: break;
-			case 5: break;
+			case 5:
+				Mem_jieun mem = new Mem_jieun();
+				mem.display();
+				break;
 			case 6: break;
 			
 			case 7: System.exit(0); break;
