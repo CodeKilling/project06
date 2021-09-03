@@ -4,6 +4,7 @@ import java.util.Scanner;
 import psy.*;
 
 import jieun.Mem_jieun;
+import psj.Sj_Main1;
 import Kimhs.KHS_method;
 
 
@@ -11,7 +12,7 @@ public class MainClass {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int input = 0;
-		
+	
 		while(true) {
 			System.out.println("1.박상진");
 			System.out.println("2.김여진");
@@ -23,7 +24,11 @@ public class MainClass {
 			input = sc.nextInt(); sc.nextLine();
 			
 			switch (input) {
-			case 1: break;
+			case 1: 
+				Sj_Main1 sj = new Sj_Main1();
+				sj.display();
+				break;
+			
 			case 2: break;
 			case 3: break;
 			case 4:
