@@ -1,6 +1,8 @@
 package main;
 
 import java.util.Scanner;
+import psy.*;
+
 import jieun.Mem_jieun;
 import Kimhs.KHS_method;
 
@@ -32,8 +34,12 @@ public class MainClass {
 				Mem_jieun mem = new Mem_jieun();
 				mem.display();
 				break;
-			case 6: break;
-			case 7: System.exit(0); break;
+			case 6:
+				Member_psy psy = new Member_psy();
+				psy.display();
+				break;
+			
+			case 7: sc.close(); System.exit(0); break;
 			default:
 				System.out.println("only 1~7.");
 				break;
