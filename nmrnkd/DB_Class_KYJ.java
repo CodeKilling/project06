@@ -13,7 +13,7 @@ import main.MemberDTO;
 
 public class DB_Class_KYJ implements Interface_Member{
 
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	private String url = "jdbc:oracle:thin:@210.221.253.215:1521:xe";
 	private String id = "nmrnkd";
 	private String pwd = "nmrnkd";
 	private Connection con = null;
