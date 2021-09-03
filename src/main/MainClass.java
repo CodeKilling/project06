@@ -2,6 +2,8 @@ package main;
 
 import java.util.Scanner;
 
+import Kimhs.KHS_method;
+
 public class MainClass {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -21,7 +23,10 @@ public class MainClass {
 			case 1: break;
 			case 2: break;
 			case 3: break;
-			case 4: break;
+			case 4:
+				KHS_method hs = new KHS_method();
+				hs.display();
+				break;
 			case 5: break;
 			case 6: break;
 			
