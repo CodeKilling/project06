@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import main.*;
 
 public class DB_jieun implements Interface_Member{
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String id = "jieun";
-	private String pwd = "1234";
+	private String url = "jdbc:oracle:thin:@210.221.253.215:1521:xe";
+	private String id = "g2";
+	private String pwd = "oracle";
 	private Connection con = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
