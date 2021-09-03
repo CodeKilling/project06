@@ -10,9 +10,9 @@ import main.Interface_Member;
 import main.MemberDTO;
 
 public class DBClass implements Interface_Member{
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String id = "faker";
-	private String pwd = "1234";
+	private String url = "jdbc:oracle:thin:@210.221.253.215:1521:xe";
+	private String id = "g2";
+	private String pwd = "oracle";
 	
 	public DBClass() {
 		try { // DBClass 객체 생성시 오라클 기능을 등록하도록 초기화
@@ -30,13 +30,15 @@ public class DBClass implements Interface_Member{
 			String sql = "select * from newst";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
+			if(rs.next()) {
 				MemberDTO dto = new MemberDTO();
 				dto.setId(rs.getString("id"));
 				dto.setName(rs.getString("name"));
 				dto.setAge(rs.getInt("age"));
 				
 				list.add(dto);
+			}else {
+				System.out.println("현재 등록된 인원은 0명 입니다.");
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
