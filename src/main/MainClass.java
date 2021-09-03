@@ -2,6 +2,8 @@ package main;
 
 import java.util.Scanner;
 
+import nmrnkd.Main_KYJ;
+
 public class MainClass {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -19,7 +21,10 @@ public class MainClass {
 			
 			switch (input) {
 			case 1: break;
-			case 2: break;
+			case 2: 
+				Main_KYJ kyj = new Main_KYJ();
+				kyj.main(args);
+				break;
 			case 3: break;
 			case 4: break;
 			case 5: break;
