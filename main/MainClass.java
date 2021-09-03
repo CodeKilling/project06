@@ -3,7 +3,9 @@ package main;
 import java.util.Scanner;
 import psy.*;
 
+import jieun.Mem_jieun;
 import Kimhs.KHS_method;
+
 
 public class MainClass {
 	public static void main(String[] args) {
@@ -28,7 +30,10 @@ public class MainClass {
 				KHS_method hs = new KHS_method();
 				hs.display();
 				break;
-			case 5: break;
+			case 5:
+				Mem_jieun mem = new Mem_jieun();
+				mem.display();
+				break;
 			case 6:
 				Member_psy psy = new Member_psy();
 				psy.display();
