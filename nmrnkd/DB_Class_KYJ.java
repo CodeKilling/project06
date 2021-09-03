@@ -16,10 +16,15 @@ public class DB_Class_KYJ implements Interface_Member{
 	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	private String id = "nmrnkd";
 	private String pwd = "nmrnkd";
+	private Connection con = null;
+	private PreparedStatement ps = null;
+	private ResultSet rs = null;
 	
 	public DB_Class_KYJ() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, id, pwd);
+			System.out.println("\nConnection Successful!\n");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -27,19 +32,16 @@ public class DB_Class_KYJ implements Interface_Member{
 	public ArrayList<MemberDTO> getList() {
 		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
 		try {
-			Connection con = DriverManager.getConnection(url, id, pwd);
-			System.out.println("-----Connection Successful-----");
-
 			String sql = "select * from newst";
-			PreparedStatement ps = con.prepareStatement(sql);
-			
-			ResultSet rs = ps.executeQuery();
+			con = DriverManager.getConnection(url, id, pwd);
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
 			
 			while(rs.next()) {
 				MemberDTO dto = new MemberDTO();
 				dto.setId(rs.getString("id"));
 				dto.setName(rs.getString("name"));
-				dto.setAge(rs.getInt("Age"));
+				dto.setAge(rs.getInt("age"));
 				
 				list.add(dto);
 			}
@@ -52,10 +54,9 @@ public class DB_Class_KYJ implements Interface_Member{
 		String sql = "insert into newst values(? , ? , ?)";
 		int result = 0;
 		try {
-			Connection con = DriverManager.getConnection(url, id, pwd);
-			System.out.println("-----Connection Successful-----");
-			PreparedStatement ps = con.prepareStatement(sql);
-			
+			con = DriverManager.getConnection(url, id, pwd);
+			ps = con.prepareStatement(sql);
+
 			ps.setString(1, userId);
 			ps.setString(2, userName);
 			ps.setInt(3, userAge);
@@ -70,13 +71,12 @@ public class DB_Class_KYJ implements Interface_Member{
 	
 	public int getDelete(String userId) {
 		int result = 0;
-		String sql = "delete from newst where id = ?";
+		String sql = "delete from newst where id=?";
 		try {
-			Connection con = DriverManager.getConnection(url, id, pwd);
-			PreparedStatement ps = con.prepareStatement(sql);
+			con = DriverManager.getConnection(url, id, pwd);
+			ps = con.prepareStatement(sql);	
 			ps.setString(1, userId);
-			 result = ps.executeUpdate();
-			
+			result = ps.executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -87,9 +87,8 @@ public class DB_Class_KYJ implements Interface_Member{
 		int result = 0;
 		String sql = "update newst set name=? ,age=? where id=?";
 		try {
-		
-			Connection con = DriverManager.getConnection(url, id, pwd);
-			PreparedStatement ps = con.prepareStatement(sql);
+			con = DriverManager.getConnection(url, id, pwd);
+			ps = con.prepareStatement(sql);
 			
 			ps.setString(1, userName);//쿼리문 순서와 맞춰줌
 			ps.setInt(2, userAge);
@@ -98,15 +97,7 @@ public class DB_Class_KYJ implements Interface_Member{
 			result = ps.executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
-			}/*finally {
-				try {
-					if(ps != null ) ps.close();
-					if(con != null) con.close();
-					
-				} catch (Exception e2) {
-					e2.printStackTrace();
-				}
-			}*/
+			}
 		return result;
 	}
 }
